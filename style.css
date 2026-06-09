@@ -1,0 +1,137 @@
+.icon {
+  width: 24px;
+  height: 24px;
+  color: rgb(225, 47, 47);
+}
+.button:focus-visible,
+a:focus-visible {
+outline: var(--border) solid var(--color-primary-strong);
+outline-offset: 2px;
+border-radius: calc(var(--radius-lg) - 2px);
+}
+:root {
+/* Farben */
+--color-primary: #0476c7;
+--color-secondary: #ff9900;
+--color-text: #333333;
+--color-background: #ffffff; /* weißer HG (von vv). Anfang von: Damit bleibt der Kontrast auch bei Hover-Effekten hoch. */
+--color-text: #222222; /* dunkler Text */
+--color-link: #0055cc; /* blauer Link */
+--color-link-hover: #003399; /* dunkler für Hover. Ende von Kontrast. Auch bei Hover. (vv)  */
+
+/* Grundlayout für alle Buttons */
+.button {
+display: inline-flex;
+align-items: center;
+gap: 0.5rem;
+border-radius: var(--radius-lg);
+padding: var(--space-md) var(--space-lg);
+font-weight: 600;
+border: var(--border) solid transparent;
+cursor: pointer;
+transition: transform var(--transition), box-shadow var(--transition),
+background-color var(--transition), border-color var(--transition), color var(--
+transition);
+}
+/* Primary */
+.button--primary {
+background: var(--color-primary);
+color: var(--color-text-on-primary);
+box-shadow: var(--shadow-sm);
+}
+.button--primary:hover { background: var(--color-primary-strong); }
+.button--primary:active { transform: translateY(1px); }
+
+/* Secondary (Umriss) */
+.button--secondary {
+background: #fff;
+color: var(--color-primary);
+border-color: var(--color-primary);
+}
+.button--secondary:hover { background: var(--color-primary-weak); }
+.button--secondary:active { transform: translateY(1px); }
+
+/* Ghost (nur Text) */
+.button--ghost {
+background: transparent;
+color: var(--color-primary);
+}
+.button--ghost:hover { background: var(--color-primary-weak); }
+.button--ghost:active { transform: translateY(1px); }
+
+/* Disabled für alle Varianten */
+.button:disabled,
+.button[aria-disabled="true"] {
+opacity: 0.5;
+cursor: not-allowed;
+transform: none;
+box-shadow: none;
+
+/* Links konsistent stylen (inkl. States) */
+a {
+color: var(--color-primary);
+text-decoration: underline;
+text-underline-offset: 2px;
+transition: color var(--transition), background-color var(--transition);
+}
+a:hover { color: var(--color-primary-strong); }
+a:active { color: var(--color-primary-strong); }
+a:visited { /* optional eigene Farbe, Kontrast prüfen */ }
+a[aria-disabled="true"] {
+opacity: 0.6;
+pointer-events: none; /* „deaktiviert“ simulieren */
+text-decoration: none;
+}
+
+}
+
+/* Typografie */
+--font-base: 'Arial', sans-serif;
+--font-heading: 'Georgia', serif;
+
+font-size: var(--font-size-base);
+line-height: 1.5; /* gute Lesbarkeit */
+
+--font-size-base: 1rem; /* ~16px */
+--font-size-small: 0.875rem; /* ~14px */
+--font-size-h3: 1.25rem; /* ~20px */
+--font-size-h2: 1.5rem; /* ~24px */
+--font-size-h1: 2rem; /* ~32px */
+}
+.hidden {
+  display: none;
+}
+
+h1, h2, h3 {
+line-height: 1.2; /* kompakter, wirkt stärker */
+
+/* Abstände */
+--spacing-small: 0.5rem;
+--spacing-medium: 1rem;
+--spacing-large: 2rem;
+}
+
+body {
+font-family: var(--font-base);
+color: #333333; /* 13.3.2 Kontrast – dunkler Text */
+background: #ffffff; /* 13.3.2 Kontrast – weißer Hintergrund */
+}
+h1 {
+font-family: var(--font-heading);
+line-height: 1.2; /* kompakter, wirkt stärker */
+color: var(--color-primary);
+}
+button {
+background-color: var(--color-primary);
+padding: var(--spacing-medium);
+
+font-size: var(--font-size-base);
+line-height: 1.5; /* gute Lesbarkeit */
+}
+h2, h3 {
+line-height: 1.2; /* kompakter, wirkt stärker */
+
+p {
+max-width: 20ch; /* ch = Zeichenbreite, hier ~20 Zeichen */
+}
+}
